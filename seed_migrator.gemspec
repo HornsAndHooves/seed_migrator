@@ -40,23 +40,23 @@ Gem::Specification.new do |s|
     s.specification_version = 4
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<activesupport>.freeze, ["~> 4.0"])
-      s.add_runtime_dependency(%q<activerecord>.freeze, ["~> 4.0"])
+      s.add_runtime_dependency(%q<activesupport>.freeze, [">= 4.0"])
+      s.add_runtime_dependency(%q<activerecord>.freeze, [">= 4.0"])
       s.add_runtime_dependency(%q<i18n>.freeze, ["> 0.1"])
       s.add_development_dependency(%q<jeweler>.freeze, [">= 0"])
       s.add_development_dependency(%q<yard>.freeze, [">= 0"])
       s.add_development_dependency(%q<rspec>.freeze, [">= 0"])
     else
-      s.add_dependency(%q<activesupport>.freeze, ["~> 4.0"])
-      s.add_dependency(%q<activerecord>.freeze, ["~> 4.0"])
+      s.add_dependency(%q<activesupport>.freeze, [">= 4.0"])
+      s.add_dependency(%q<activerecord>.freeze, [">= 4.0"])
       s.add_dependency(%q<i18n>.freeze, ["> 0.1"])
       s.add_dependency(%q<jeweler>.freeze, [">= 0"])
       s.add_dependency(%q<yard>.freeze, [">= 0"])
       s.add_dependency(%q<rspec>.freeze, [">= 0"])
     end
   else
-    s.add_dependency(%q<activesupport>.freeze, ["~> 4.0"])
-    s.add_dependency(%q<activerecord>.freeze, ["~> 4.0"])
+    s.add_dependency(%q<activesupport>.freeze, [">= 4.0"])
+    s.add_dependency(%q<activerecord>.freeze, [">= 4.0"])
     s.add_dependency(%q<i18n>.freeze, ["> 0.1"])
     s.add_dependency(%q<jeweler>.freeze, [">= 0"])
     s.add_dependency(%q<yard>.freeze, [">= 0"])
