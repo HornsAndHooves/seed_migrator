@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
-gem 'activesupport', '~> 5.2.3'
-gem 'activerecord',  '~> 5.2.3'
+gem 'activesupport', '>= 4.0', '< 6.0'
+gem 'activerecord',  '>= 4.0', '< 6.0'
 gem 'i18n', '> 0.1'
 
 group :development do
