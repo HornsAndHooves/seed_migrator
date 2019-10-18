@@ -14,6 +14,7 @@ class SeedMigrator::CreateGenerator < Rails::Generators::NamedBase
     migration_template "data_update_migration.rb", "db/migrate/#{file_name}.rb"
   end
 
+  # The next available migration number for the given directory name.
   def self.next_migration_number dirname
     ActiveRecord::Generators::Base.next_migration_number dirname
   end
