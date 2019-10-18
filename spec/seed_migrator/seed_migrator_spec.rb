@@ -1,4 +1,4 @@
-require 'spec_helper'
+require "spec_helper"
 
 describe SeedMigrator do
   before :all do
@@ -11,7 +11,7 @@ describe SeedMigrator do
       end
 
       def should_run?(update_name)
-        update_name != '03_foo_update' && update_name != 'foo_update'
+        update_name != "03_foo_update" && update_name != "foo_update"
       end
     end
 

@@ -1,12 +1,12 @@
-require 'rails/generators/active_record'
-require 'generators/seed_migrator/helper'
+require "rails/generators/active_record"
+require "generators/seed_migrator/helper"
 
 # Generator to create a data update + associated migration
 class SeedMigrator::CreateGenerator < Rails::Generators::NamedBase
   include Generators::SeedMigrator::Helper
   include Rails::Generators::Migration
 
-  source_root File.expand_path('../templates', __FILE__)
+  source_root File.expand_path("../templates", __FILE__)
 
   # Creates the data update file and the migration file.
   def create_helper_file
