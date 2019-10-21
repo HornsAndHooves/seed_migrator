@@ -1,3 +1,7 @@
 pkg/
 .yardoc
 Gemfile.lock
+
+ctags
+mtags
+tags
