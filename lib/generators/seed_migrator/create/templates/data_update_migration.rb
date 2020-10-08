@@ -1,5 +1,7 @@
-class <%= migration_class_name %> < ActiveRecord::Migration
-  include <%= application_class_name %>DataUpdate
+class <%= migration_class_name %> < <%= migration_base_class_name %>
+  include <%= data_update_module_name %>
+
+  set_role "<%= schema_name %>"
 
   def up
     apply_update "<%= data_update_file_name  %>"

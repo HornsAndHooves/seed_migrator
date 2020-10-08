@@ -18,6 +18,20 @@ module Generators # :nodoc:
         end
       end
 
+      # Return data update class name
+      def data_update_module_name
+        data_update_class = ObjectSpace.each_object(Module).select do |mod|
+          mod.included_modules.include?(SeedMigrator)
+        end.last.to_s
+
+        class_names = [
+          Rails.application.class.name + "DataUpdate",
+          "DataUpdate"
+        ]
+
+        data_update_class if data_update_class.in?(class_names)
+      end
+
       # Fully qualified name of the application or engine
       # @example AppName::Engine or AppName::Application
       # @return [String]
@@ -42,6 +56,18 @@ module Generators # :nodoc:
       # @return [String]
       def data_update_file_name
         "#{migration_number}_#{file_name}_data_update"
+      end
+
+      # Rails 5 uses a different class name for migrations.
+      def migration_base_class_name
+        "ActiveRecord::Migration" +
+          Rails::VERSION::MAJOR >= 5 ? "[#{Rails::VERSION::MAJOR}.#{Rails::VERSION::MINOR}]" : ""
+      end
+
+      # Get default schema
+      def schema_name
+        @schema_name ||=
+          ActiveRecord::Base.connection.current_schema
       end
     end
   end
