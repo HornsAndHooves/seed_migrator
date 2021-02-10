@@ -43,6 +43,17 @@ module Generators # :nodoc:
       def data_update_file_name
         "#{migration_number}_#{file_name}_data_update"
       end
+
+      # Version suffix for Rails 5 migrations.
+      #
+      # @return [String]
+      def version_suffix
+        major_version, minor_version, *_ = Rails.version.split(".")
+
+        return "" if major_version.to_i < 5
+
+        "[#{major_version}.#{minor_version}]"
+      end
     end
   end
 end
