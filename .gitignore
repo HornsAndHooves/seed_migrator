@@ -5,3 +5,6 @@ Gemfile.lock
 ctags
 mtags
 tags
+
+.bundle
+.idea
