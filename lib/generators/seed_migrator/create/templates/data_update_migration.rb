@@ -1,4 +1,4 @@
-class <%= migration_class_name %> < ActiveRecord::Migration
+class <%= migration_class_name %> < ActiveRecord::Migration<%= version_suffix %>
   include <%= application_class_name %>DataUpdate
 
   def up
