@@ -2,11 +2,11 @@ require 'spec_helper'
 
 describe SeedMigrator::Updater do
   it "Should raise error if undo_update is not overriden" do
-    expect{ SeedMigrator::Updater.new.undo_update }.to raise_error
+    expect{ SeedMigrator::Updater.new.undo_update }.to raise_error(RuntimeError)
   end
 
   it "Should raise error if perform_update is not overriden" do
-    expect{ SeedMigrator::Updater.new.perform_update }.to raise_error
+    expect{ SeedMigrator::Updater.new.perform_update }.to raise_error(RuntimeError)
   end
 
   context 'when #execute is called' do
@@ -14,13 +14,15 @@ describe SeedMigrator::Updater do
 
 
     it 'Should be delegated' do
-      @updater.should respond_to(:execute)
+      expect(@updater).to respond_to(:execute)
     end
 
     it 'Should be delegated to ActiveRecord::Base.connection' do
-      ActiveRecord::Base.stub_chain(:connection, :execute).with(:foo).and_return(:bar)
+      conn = double
+      expect(ActiveRecord::Base).to receive(:connection).and_return(conn)
+      expect(conn).to receive(:execute).with(:foo).and_return(:bar)
 
-      @updater.execute(:foo).should == :bar
+      expect(@updater.execute(:foo)).to eq :bar
     end
   end
 end
