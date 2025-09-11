@@ -1,14 +1,9 @@
-source 'https://rubygems.org'
+source "https://rubygems.org"
 
-gem 'activesupport', '>= 4.0', '< 7.0'
-gem 'activerecord',  '>= 4.0', '< 7.0'
-gem 'i18n', '> 0.1'
+gemspec
 
-group :development do
-  gem 'jeweler'
-  gem 'yard'
-end
-
-group :development, :test do
-  gem 'rspec'
-end
+gem "concurrent-ruby", "< 1.3.5"
+gem "i18n", "> 0.1"
+gem "jeweler"
+gem "rspec"
+gem "yard"
