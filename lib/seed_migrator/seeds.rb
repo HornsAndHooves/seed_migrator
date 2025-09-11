@@ -34,7 +34,7 @@ module SeedMigrator
     # @param [String] updates_path
     # @return [Array]
     def get_update_files(updates_path)
-      if File.exists?(updates_path) && File.directory?(updates_path)
+      if File.exist?(updates_path) && File.directory?(updates_path)
         Dir.entries(updates_path).select { |file|
           file.ends_with? '.rb'
         }.sort
