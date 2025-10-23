@@ -1,7 +1,10 @@
-require 'rubygems'
-require 'rspec'
+require "rubygems"
+require "rspec"
 
-require 'seed_migrator'
+require "logger"
+require "active_support/all"
+
+require "seed_migrator"
 
 RSpec.configure do |config|
   # do config
